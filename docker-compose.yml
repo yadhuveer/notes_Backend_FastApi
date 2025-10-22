@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: notes_db
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - "3307:3306"   
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    container_name: notes_backend
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
