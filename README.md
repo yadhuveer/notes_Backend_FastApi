@@ -19,7 +19,7 @@ DATABASE_USER=root,
 DATABASE_PASS=password,
 DATABASE_HOST=db,
 DATABASE_NAME=notes_db   
-2. Clone the repository:
+  2. Clone the repository:
 git clone  https://github.com/yadhuveer/notes_Backend_FastApi.git
 cd notes-backend  
 
