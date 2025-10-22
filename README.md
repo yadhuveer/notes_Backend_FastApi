@@ -21,7 +21,6 @@ DATABASE_HOST=notes_db
 DATABASE_NAME=notes_db
 
 2. Clone the repository:
-
 git clone  https://github.com/yadhuveer/notes_Backend_FastApi.git
   cd notes-backend  
 
