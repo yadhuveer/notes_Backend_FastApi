@@ -1,14 +1,11 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
-from typing import Optional, List
+from typing import Optional
 
 
-class UserBase(BaseModel):
+class UserCreate(BaseModel):
     user_name: str
     user_email: EmailStr
-
-
-class UserCreate(UserBase):
     password: str
 
 
@@ -17,32 +14,11 @@ class UserLogin(BaseModel):
     password: str
 
 
-class UserResponse(UserBase):
+class UserResponse(BaseModel):
     user_id: str
-    create_on: datetime
-    last_update: datetime
-
-    class Config:
-        orm_mode = True
-
-
-
-
-class NoteBase(BaseModel):
-    note_title: str
-    note_content: str
-
-
-
-class NoteCreate(NoteBase):
-    pass
-
-
-class NoteResponse(NoteBase):
-    note_id: str
+    user_name: str
+    user_email: EmailStr
     created_on: datetime
-    last_update: datetime
-    user_id: str
 
     class Config:
         orm_mode = True
@@ -53,5 +29,14 @@ class Token(BaseModel):
     token_type: str
 
 
-class TokenData(BaseModel):
-    user_id: Optional[str] = None
+class NoteCreate(BaseModel):
+    note_title: str
+    note_content: str
+
+
+class NoteResponse(BaseModel):
+    note_id: str
+    note_title: str
+    note_content: str
+    user_id: str
+    created_on: datetime

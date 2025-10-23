@@ -12,11 +12,13 @@ fastapi==0.119.1
 greenlet==3.2.4
 h11==0.16.0
 idna==3.11
+motor==3.7.1
 passlib==1.7.4
 pyasn1==0.6.1
 pycparser==2.23
 pydantic==2.12.3
 pydantic_core==2.41.4
+pymongo==4.15.3
 PyMySQL==1.1.2
 python-dotenv==1.1.1
 python-jose==3.5.0
